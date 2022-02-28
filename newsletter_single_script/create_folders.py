@@ -1,7 +1,5 @@
-from hashlib import new
 import os
 import shutil
-from unicodedata import name
 
 #local run uses this:
 dir='../testing'
