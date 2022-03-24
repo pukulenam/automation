@@ -2,7 +2,7 @@ import os
 import shutil
 
 #local run uses this:
-dir='../testing'
+dir='/content/drive/MyDrive/testing'
 
 def check_leap_year(x):
     if x%100 == 0:
@@ -27,6 +27,25 @@ def days_of_months(x,y):
         return 31
     else: return 30
 
+def date_to_number_of_days(i,bulan,tahun):
+    if bulan <=2 :
+        tahun=tahun-1
+    if bulan <=2 :
+        bulan = bulan+13
+    else:
+        bulan = bulan+1
+    days = ((1461*tahun)/4) + ((153*bulan)/5) + i
+    return days
+
+
+def date_to_day_name(x):
+    ref_days=date_to_number_of_days(1,1,2000)
+    dif = x-ref_days
+    days = ['Sabtu', 'Minggu', 'Senin','Selasa', 'Rabu', 'Kamis' , 'Jumat']
+    #1 Januari 2000 adalah hari Sabtu
+    mod = dif%7
+    return days[mod]
+
 
 #these two going to depends on the input
 bulan = int(input("masukan bulan dalam angka: "))
@@ -35,7 +54,8 @@ tahun = int(input("masukan tahun dalam angka: "))
 if check_month(bulan):
     days=days_of_months(bulan,tahun)
     for i in range(1,days+1):
-         nameformat=str(i)+"-"+str(bulan)+"-"+str(tahun)
+         hari = date_to_day_name(date_to_number_of_days(i,bulan,tahun))
+         nameformat=hari"_"+str(i)+"-"+str(bulan)+"-"+str(tahun)
          newdir=dir+'/'+nameformat
          os.makedirs(newdir)
          shutil.copy('/Users/iganarendra/automation/Main Article Template.docx',newdir+'/topic1_'+nameformat+'.docx')
