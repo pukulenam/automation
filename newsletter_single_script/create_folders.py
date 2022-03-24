@@ -1,8 +1,7 @@
 import os
 import shutil
 
-#local run uses this:
-dir='/content/drive/MyDrive/testing'
+namabulan = ['Januari','Februari','Maret','April','Mei','Juni','Juli','Agustus','September','Oktober','November','Desember']
 
 def check_leap_year(x):
     if x%100 == 0:
@@ -50,6 +49,8 @@ def date_to_day_name(x):
 #these two going to depends on the input
 bulan = int(input("masukan bulan dalam angka: "))
 tahun = int(input("masukan tahun dalam angka: "))
+
+dir='/content/drive/MyDrive/PukulEnam Newsroom/'+str(tahun)+'/'+str(namabulan[bulan-1])
 
 if check_month(bulan):
     days=days_of_months(bulan,tahun)
