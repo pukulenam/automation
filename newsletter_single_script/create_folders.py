@@ -50,7 +50,7 @@ def date_to_day_name(x):
 bulan = int(input("masukan bulan dalam angka: "))
 tahun = int(input("masukan tahun dalam angka: "))
 
-dir='/content/drive/MyDrive/PukulEnam Newsroom/'+str(tahun)+'/'+str(namabulan[bulan-1])
+dir='/content/drive/MyDrive/PukulEnam Newsroom/'+str(tahun)+'/'+namabulan[bulan-1]
 
 if check_month(bulan):
     days=days_of_months(bulan,tahun)
