@@ -41,7 +41,7 @@ def date_to_number_of_days(i,bulan,tahun):
 def date_to_day_name(x):
     ref_days=date_to_number_of_days(1,1,2000)
     dif = x-ref_days
-    days = ['Sabtu', 'Minggu', 'Senin','Selasa', 'Rabu', 'Kamis' , 'Jumat']
+    days = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis' , 'Jumat', 'Sabtu']
     #1 Januari 2000 adalah hari Sabtu
     mod = dif%7
     return days[mod]
@@ -55,7 +55,7 @@ if check_month(bulan):
     days=days_of_months(bulan,tahun)
     for i in range(1,days+1):
          hari = date_to_day_name(date_to_number_of_days(i,bulan,tahun))
-         nameformat=hari+"_"+str(i)+"-"+str(bulan)+"-"+str(tahun)
+         nameformat=str(i)+"-"+str(bulan)+"-"+str(tahun)+"_"hari
          newdir=dir+'/'+nameformat
          os.makedirs(newdir)
          shutil.copy('/Users/iganarendra/automation/Main Article Template.docx',newdir+'/topic1_'+nameformat+'.docx')
