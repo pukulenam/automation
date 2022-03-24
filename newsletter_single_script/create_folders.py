@@ -35,7 +35,7 @@ def date_to_number_of_days(i,bulan,tahun):
     else:
         bulan = bulan+1
     days = ((1461*tahun)/4) + ((153*bulan)/5) + i
-    return days
+    return int(days)
 
 
 def date_to_day_name(x):
@@ -55,7 +55,7 @@ if check_month(bulan):
     days=days_of_months(bulan,tahun)
     for i in range(1,days+1):
          hari = date_to_day_name(date_to_number_of_days(i,bulan,tahun))
-         nameformat=hari"_"+str(i)+"-"+str(bulan)+"-"+str(tahun)
+         nameformat=hari+"_"+str(i)+"-"+str(bulan)+"-"+str(tahun)
          newdir=dir+'/'+nameformat
          os.makedirs(newdir)
          shutil.copy('/Users/iganarendra/automation/Main Article Template.docx',newdir+'/topic1_'+nameformat+'.docx')
